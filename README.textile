@@ -117,6 +117,9 @@ h2. Using factories
 <pre><code># Build and save a User instance
 Factory(:user)
 
+# Build and tries to save a User instance without raising ActiveRecord::RecordInvalid (uses save instead of save!)
+Factory.construct(:user, :first_name => nil)
+
 # Build a User instance and override the first_name property
 Factory.build(:user, :first_name => 'Joe')
 
