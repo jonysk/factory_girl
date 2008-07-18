@@ -190,6 +190,23 @@ class Factory
     def create (name, attrs = {})
       factory_by_name(name).create(attrs)
     end
+    
+    # Generates, saves, and returns an instance from this factory. Attributes can
+    # be individually overridden by passing in a Hash of attribute => value
+    # pairs.
+    #
+    # If the instance is not valid, does not raise an ActiveRecord::Invalid exception (differently from create())
+    #
+    # Arguments:
+    #   attrs: (Hash)
+    #     See attributes_for
+    #
+    # Returns:
+    #   A saved instance of the class this factory generates, with generated
+    #   attributes assigned.
+    def construct (name, attrs = {})
+      factory_by_name(name).construct(attrs)
+    end
 
     private
 
