@@ -1,3 +1,6 @@
+1.1.2 (July 18, 2008)
+  Added Factory#constructor 
+  
 1.1.1 (June 23, 2008)
   The attribute "name" no longer requires using #add_attribute
 

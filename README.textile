@@ -76,10 +76,15 @@ defining a lazy attribute:
 end</code></pre>
 
 
-When using the association method, the same build strategy (build, create, or attributes_for) will be used for all generated instances:
+When using the association method, the same build strategy (build, create, construct, or attributes_for) will be used for all generated instances:
 
 <pre><code># Builds and saves a User and a Post
 post = Factory(:post)
+post.new_record?       # => false
+post.author.new_record # => false
+
+# Builds and saves a User and a Post (does not raise error if the object wasn't saved)
+post = Factory.construct(:post)
 post.new_record?       # => false
 post.author.new_record # => false
 
