@@ -262,6 +262,26 @@ class FactoryTest < Test::Unit::TestCase
           @factory.create(:first_name => nil)
         end
       end
+      
+      context "when creating an instance with construct" do
+
+        setup do
+          @instance = @factory.construct
+        end
+
+        should_instantiate_class
+
+        should "save the instance" do
+          assert !@instance.new_record?
+        end
+
+      end
+
+      should "not raise an ActiveRecord::RecordInvalid error for invalid instances" do
+        assert_nothing_raised do
+          @factory.construct(:first_name => nil)
+        end
+      end
 
     end
 

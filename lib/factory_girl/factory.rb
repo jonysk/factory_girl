@@ -135,6 +135,12 @@ class Factory
     instance.save!
     instance
   end
+  
+  def construct (attrs = {}) #:nodoc:
+    instance = build_instance(attrs, :create)
+    instance.save
+    instance
+  end
 
   class << self
 
